@@ -40,9 +40,33 @@ select *
 from
 store;
 
-select *
+SELECT *
 from
-payment
+payment;
+
+SELECT
+SUM(AMOUNT)
+FROM SAKILA.PAYMENT;
+
+SELECT 
+sum(amount)
+from sakila.payment
+group by staff_id;
+
+-- 4
+
+SELECT * 
+FROM 
+film;
+
+SELECT * 
+FROM
+CATEGORY
+
+
+
+
+
 
 
 
