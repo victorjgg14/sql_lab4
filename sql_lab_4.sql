@@ -2,18 +2,6 @@ use sakila;
 
 -- 1.
 
-select * 
-from sakila.category;
-
-SELECT *
-FROM sakila.film_category;
-
-SELECT *
-FROM 
-sakila.film_category as cat_film
-left join sakila.category as cat
-on cat_film.film_id = cat.category_id;
-
 SELECT 
 distinct category_id,
 count(*) as numero_pelis
@@ -53,6 +41,23 @@ sum(amount)
 from sakila.payment
 group by staff_id;
 
+SELECT 
+sum(amount),
+st.store_id
+from sakila.payment
+left join sakila.store as st
+on st.store_id = st.manager_staff_id
+group by staff_id;
+
+select st.store_id, sum(amount)
+from store as st
+left join staff as sf
+on st.store_id = sf.store_id
+left join  payment as pay
+on sf.staff_id = pay.staff_id
+group by st.store_id;
+
+
 -- 4
 
 SELECT * 
@@ -66,7 +71,7 @@ CATEGORY
 
 
 
-
+sakila.store.manager_staff_id
 
 
 
